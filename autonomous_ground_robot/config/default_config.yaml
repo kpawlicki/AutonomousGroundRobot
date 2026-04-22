@@ -1,0 +1,101 @@
+# Default configuration for the Autonomous Ground Robot
+# All values can be overridden by user-supplied YAML files.
+
+# ---------------------------------------------------------------------------
+# GPS sensor
+# ---------------------------------------------------------------------------
+gps:
+  # Uncomment and set to use a real GPS receiver
+  # port: /dev/ttyUSB0
+  # baud: 9600
+  sim_latitude: 48.8566    # Paris – change to your test location
+  sim_longitude: 2.3522
+
+# ---------------------------------------------------------------------------
+# LiDAR sensor
+# ---------------------------------------------------------------------------
+lidar:
+  # port: /dev/ttyUSB1       # RPLidar USB port
+  num_points: 360
+  max_range: 12.0             # metres
+  obstacle_distance: 2.5      # simulated obstacle distance (m)
+  obstacle_width_deg: 30.0
+
+# ---------------------------------------------------------------------------
+# Depth camera
+# ---------------------------------------------------------------------------
+depth_camera:
+  width: 640
+  height: 480
+  fps: 30
+  sim_obstacle_distance: 1.5  # metres
+  sim_background_distance: 5.0
+
+# ---------------------------------------------------------------------------
+# Ultrasonic sensors  (list – one entry per sensor)
+# ---------------------------------------------------------------------------
+ultrasonic:
+  - direction: front
+    sim_distance: 3.0
+    max_range: 4.0
+  - direction: rear
+    sim_distance: 3.0
+    max_range: 4.0
+
+# ---------------------------------------------------------------------------
+# Navigation
+# ---------------------------------------------------------------------------
+navigation:
+  algorithm: astar        # astar | dijkstra | potential_fields
+  allow_diagonal: true
+  astar_weight: 1.0
+  apf_attractive_gain: 1.0
+  apf_repulsive_gain: 100.0
+  apf_influence_radius: 5.0
+
+  grid_resolution: 0.1    # metres per grid cell
+  grid_width: 201
+  grid_height: 201
+
+  cruise_speed: 1.0       # m/s
+  emergency_stop_distance: 0.3   # metres
+
+  update_interval: 0.1    # seconds between navigation loop iterations
+
+# ---------------------------------------------------------------------------
+# Motor controller
+# ---------------------------------------------------------------------------
+control:
+  # pwm_left_pin: 12       # Uncomment for real hardware (BCM GPIO)
+  # pwm_right_pin: 13
+  max_speed: 2.0           # m/s
+  wheel_base: 0.3          # metres
+  heading_kp: 1.2          # proportional heading gain
+  pwm_frequency: 50        # Hz
+
+# ---------------------------------------------------------------------------
+# Communication  (optional – comment out the whole block to disable)
+# ---------------------------------------------------------------------------
+communication:
+  carrier: lora            # lte | lora | radio
+  enabled: true
+  telemetry_interval: 1.0  # seconds
+  heartbeat_interval: 5.0
+
+  # LTE settings
+  lte:
+    host: 127.0.0.1
+    port: 5760
+    timeout: 5.0
+
+  # LoRa settings
+  lora:
+    # port: /dev/ttyS0
+    baud: 9600
+    timeout: 2.0
+
+  # Radio settings
+  radio:
+    # port: /dev/ttyUSB2
+    baud: 57600
+    timeout: 1.0
