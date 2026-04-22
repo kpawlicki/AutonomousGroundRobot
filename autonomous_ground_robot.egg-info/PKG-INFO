@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: autonomous-ground-robot
+Version: 0.1.0
+Summary: Software stack for autonomous ground robot navigation
+Home-page: https://github.com/kpawlicki/AutonomousGroundRobot
+Author: kpawlicki
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: System :: Hardware
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: hardware
+
 # Autonomous Ground Robot
 
 A modular, open-source software stack for autonomous ground robot navigation.

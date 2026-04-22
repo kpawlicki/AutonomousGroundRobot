@@ -1,0 +1,12 @@
+# Core runtime dependencies
+pyyaml>=6.0
+
+# Hardware drivers (optional – install on the target platform)
+# pyserial>=3.5          # GPS, LiDAR (RPLidar), LoRa, Radio serial ports
+# RPi.GPIO>=0.7          # Raspberry Pi GPIO (ultrasonic, motor PWM)
+# pyrealsense2>=2.50     # Intel RealSense depth camera
+# rplidar-roboticia>=0.9 # RPLidar A/S series
+
+# Development / testing
+pytest>=7.0
+pytest-cov>=4.0

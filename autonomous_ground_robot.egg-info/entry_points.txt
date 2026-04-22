@@ -1,0 +1,2 @@
+[console_scripts]
+agr = main:main
